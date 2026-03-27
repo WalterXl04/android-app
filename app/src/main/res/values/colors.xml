@@ -9,6 +9,6 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="blue_imepac">#0056b3</color>
-    <color name="gray_light">#F5F5F5</color>
     <color name="gray_dark">#333333</color>
+    <color name="red_exit">#D32F2F</color>
 </resources>

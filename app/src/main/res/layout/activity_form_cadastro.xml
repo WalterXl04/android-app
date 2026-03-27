@@ -1,10 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FormCadastro">
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="20dp"
+    android:background="@color/white">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Criar Conta"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/blue_imepac"
+        android:layout_marginBottom="30dp"/>
+
+    <EditText
+        android:id="@+id/edit_nome"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:hint="Nome Completo"
+        android:background="@android:drawable/editbox_background"
+        android:padding="10dp"
+        android:layout_marginBottom="15dp"/>
+
+    <EditText
+        android:id="@+id/edit_email_cadastro"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:hint="E-mail"
+        android:background="@android:drawable/editbox_background"
+        android:padding="10dp"
+        android:layout_marginBottom="15dp"/>
+
+    <EditText
+        android:id="@+id/edit_senha_cadastro"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:hint="Senha"
+        android:inputType="textPassword"
+        android:background="@android:drawable/editbox_background"
+        android:padding="10dp"
+        android:layout_marginBottom="30dp"/>
+
+    <Button
+        android:id="@+id/btn_cadastrar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="CADASTRAR E VOLTAR"
+        android:backgroundTint="@color/blue_imepac"/>
+</LinearLayout>

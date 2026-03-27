@@ -22,10 +22,8 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".FormCadastro"
-            android:exported="false" />
+        <activity android:name=".FormCadastro" android:exported="false" />
+        <activity android:name=".HomeActivity" android:exported="false" />
 
     </application>
-
 </manifest>
