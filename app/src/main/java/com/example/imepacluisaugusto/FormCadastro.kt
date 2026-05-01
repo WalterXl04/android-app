@@ -6,10 +6,12 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class FormCadastro : AppCompatActivity() {
 
     private val auth = FirebaseAuth.getInstance()
+    private val db = FirebaseFirestore.getInstance() // Liga o motor do Firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,10 +33,33 @@ class FormCadastro : AppCompatActivity() {
             } else if (senha.length < 6) {
                 editSenha.error = "A senha deve ter pelo menos 6 caracteres"
             } else {
+                // 1. Cria a conta de login primeiro
                 auth.createUserWithEmailAndPassword(email, senha).addOnCompleteListener { tarefa ->
                     if (tarefa.isSuccessful) {
-                        Toast.makeText(this, "Sucesso ao cadastrar $nome!", Toast.LENGTH_SHORT).show()
-                        finish() // Volta para a tela de Login
+
+                        // 2. Pega o ID gerado pelo Google
+                        val usuarioID = auth.currentUser?.uid
+
+                        // 3. Monta o pacote de dados para o banco
+                        val dadosUsuario = hashMapOf(
+                            "nome" to nome,
+                            "email" to email,
+                            "id" to usuarioID
+                        )
+
+                        // 4. Salva tudo na pasta "Usuarios" lá no Firestore
+                        if (usuarioID != null) {
+                            db.collection("Usuarios").document(usuarioID)
+                                .set(dadosUsuario)
+                                .addOnSuccessListener {
+                                    Toast.makeText(this, "Sucesso ao cadastrar $nome!", Toast.LENGTH_SHORT).show()
+                                    finish() // Volta para a tela de Login
+                                }
+                                .addOnFailureListener {
+                                    Toast.makeText(this, "Erro ao salvar no banco", Toast.LENGTH_SHORT).show()
+                                }
+                        }
+
                     } else {
                         val erro = tarefa.exception?.message
                         Toast.makeText(this, "Erro: $erro", Toast.LENGTH_LONG).show()
