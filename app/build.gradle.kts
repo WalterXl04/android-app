@@ -48,4 +48,5 @@ dependencies {
 
     // 👇 OLHA A LINHA DO FIRESTORE AQUI
     implementation("com.google.firebase:firebase-firestore")
+    androidTestImplementation(libs.junit.junit)
 }

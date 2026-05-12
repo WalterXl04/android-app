@@ -5,22 +5,37 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="20dp"
-    android:background="@color/white">
+    android:background="#FFFFFF">
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="197dp"
+        android:layout_marginBottom="5dp"
+
+        android:src="@drawable/logo" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login Imepac"
-        android:textSize="30sp"
+        android:text="Casa dos Assados"
+        android:textSize="26sp"
         android:textStyle="bold"
-        android:textColor="@color/blue_imepac"
-        android:layout_marginBottom="40dp"/>
+        android:textColor="#B71C1C" android:layout_marginBottom="4dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Frango | Farofa | Maionese | Lasanhas"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="#FBC02D" android:layout_marginBottom="35dp"/>
 
     <EditText
         android:id="@+id/edit_email"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:hint="E-mail"
+        android:inputType="textEmailAddress"
         android:padding="10dp"
         android:background="@android:drawable/editbox_background"
         android:layout_marginBottom="15dp"/>
@@ -40,14 +55,17 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:text="ENTRAR"
-        android:backgroundTint="@color/blue_imepac"/>
-
-    <TextView
-        android:id="@+id/text_tela_cadastro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Não tem conta? Cadastre-se"
-        android:layout_marginTop="20dp"
+        android:textSize="18sp"
         android:textStyle="bold"
-        android:textColor="@color/gray_dark"/>
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#B71C1C"/> <TextView
+    android:id="@+id/text_tela_cadastro"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Ainda não tem conta? Cadastre-se"
+    android:layout_marginTop="20dp"
+    android:textSize="15sp"
+    android:textStyle="bold"
+    android:textColor="#B71C1C"/>
+
 </LinearLayout>
