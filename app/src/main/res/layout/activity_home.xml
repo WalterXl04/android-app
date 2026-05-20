@@ -27,6 +27,7 @@
             android:gravity="center">
 
             <TextView
+                android:id="@+id/text_bem_vindo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Olá, Usuário!"
@@ -35,10 +36,19 @@
                 android:textColor="@color/blue_imepac" />
 
             <TextView
+                android:id="@+id/text_email_usuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="carregando e-mail..."
+                android:textSize="16sp"
+                android:layout_marginTop="6dp"
+                android:textColor="@color/gray_dark" />
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Seja bem-vindo ao sistema da IMEPAC."
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="16dp"
                 android:textColor="@color/gray_dark"
                 android:textAlignment="center" />
 
