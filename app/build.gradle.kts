@@ -37,16 +37,19 @@ android {
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.12.0")
+    // 👇 Versão rebaixada para 1.13.1 (Compatível com SDK 34)
+    implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
-    // FIREBASE - Versão 32.7.0 (Compatível com o seu Kotlin 1.9.0)
+    // FIREBASE - Versão 32.7.0
     implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
     implementation("com.google.firebase:firebase-auth")
-
-    // 👇 OLHA A LINHA DO FIRESTORE AQUI
     implementation("com.google.firebase:firebase-firestore")
-    androidTestImplementation(libs.junit.junit)
+
+    // 👇 Trocado o 'libs.androidx.activity' pela versão explícita 1.9.0 (Compatível com SDK 34)
+    implementation("androidx.activity:activity:1.9.0")
+
+    androidTestImplementation("junit:junit:4.13.2")
 }

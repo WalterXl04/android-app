@@ -9,7 +9,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:background="@color/blue_imepac" />
+        android:background="#C62828" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -30,37 +30,56 @@
                 android:id="@+id/text_bem_vindo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Olá, Usuário!"
+                android:text="Olá, Cliente!"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:textColor="@color/blue_imepac" />
+                android:textColor="#C62828" /> <TextView
+            android:id="@+id/text_email_usuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="carregando e-mail..."
+            android:textSize="14sp"
+            android:layout_marginTop="4dp"
+            android:textColor="#757575" />
 
             <TextView
-                android:id="@+id/text_email_usuario"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="carregando e-mail..."
-                android:textSize="16sp"
-                android:layout_marginTop="6dp"
-                android:textColor="@color/gray_dark" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Seja bem-vindo ao sistema da IMEPAC."
+                android:text="Seja bem-vindo(a) à Casa dos Assados!"
                 android:layout_marginTop="16dp"
-                android:textColor="@color/gray_dark"
+                android:textStyle="bold"
+                android:textColor="#333333"
                 android:textAlignment="center" />
+
+            <Button
+                android:id="@+id/btn_cardapio"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="25dp"
+                android:backgroundTint="#FFB300"
+                android:text="VER CARDÁPIO"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/btn_meus_pedidos"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#4CAF50"
+                android:text="MEUS PEDIDOS"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF" />
 
             <Button
                 android:id="@+id/btn_sair"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
-                android:layout_marginTop="30dp"
-                android:backgroundTint="@color/red_exit"
-                android:text="SAIR DO SISTEMA"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#D32F2F"
+                android:text="SAIR DA CONTA"
                 android:textStyle="bold"
-                android:textColor="@color/white" />
+                android:textColor="#FFFFFF" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
