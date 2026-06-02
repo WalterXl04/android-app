@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,6 +14,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ImepacLuisAugusto"
         tools:targetApi="31">
+
+        <activity
+            android:name=".FormLogin"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".FormCadastro"
+            android:exported="false" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
         <activity
             android:name=".PerfilActivity"
             android:exported="false" />
@@ -22,20 +40,29 @@
             android:name=".CardapioActivity"
             android:exported="false" />
         <activity
-            android:name=".FormLogin"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:name=".DetalheProdutoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CarrinhoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CheckoutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetalhePedidoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EnderecoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PagamentoActivity"
+            android:exported="false" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <!-- Tela Institucional Adicionada -->
         <activity
-            android:name=".FormCadastro"
+            android:name=".SobreActivity"
             android:exported="false" />
-        <activity
-            android:name=".HomeActivity"
-            android:exported="false" />
+
     </application>
 
 </manifest>

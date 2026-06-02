@@ -1,87 +1,240 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#F5F5F5">
+    android:background="#F5F6F8"
+    android:fillViewport="true">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:background="#C62828" />
-
-    <androidx.cardview.widget.CardView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="-60dp"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="8dp">
+        android:orientation="vertical"
+        android:paddingBottom="40dp"
+        android:clipChildren="false"
+        android:clipToPadding="false">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="30dp"
-            android:gravity="center">
+            android:background="@drawable/bg_header_gradient"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:paddingTop="48dp"
+            android:paddingBottom="48dp">
 
-            <TextView
-                android:id="@+id/text_bem_vindo"
-                android:layout_width="wrap_content"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/avatar_card"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                app:cardCornerRadius="32dp"
+                app:cardElevation="2dp">
+                <TextView
+                    android:id="@+id/text_avatar_inicial"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="U"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:textColor="#D32F2F"
+                    android:gravity="center"
+                    android:background="#FFFFFF"/>
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Olá, Cliente!"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:textColor="#C62828" /> <TextView
-            android:id="@+id/text_email_usuario"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="16dp">
+
+                <TextView
+                    android:id="@+id/text_bem_vindo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Olá, Cliente!"
+                    android:textColor="#FFFFFF"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/text_email_usuario"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="cliente@email.com"
+                    android:textColor="#FFEBEE"
+                    android:textSize="14sp"
+                    android:layout_marginTop="2dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_destaque"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="-24dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="8dp"
+            app:strokeWidth="0dp"
+            app:cardBackgroundColor="#F57C00">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@android:drawable/ic_menu_gallery"
+                    app:tint="#FFFFFF"
+                    android:layout_marginBottom="12dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bateu a fome?"
+                    android:textColor="#FFFFFF"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Confira os melhores assados saindo do forno agora."
+                    android:textColor="#FFF3E0"
+                    android:textSize="14sp"
+                    android:layout_marginTop="4dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_cardapio"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Fazer Pedido"
+                    app:cornerRadius="12dp"
+                    app:backgroundTint="#FFFFFF"
+                    android:textColor="#E65100"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:elevation="0dp"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="carregando e-mail..."
+            android:text="Acesso Rápido"
+            android:textColor="#757575"
             android:textSize="14sp"
-            android:layout_marginTop="4dp"
-            android:textColor="#757575" />
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="12dp"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Seja bem-vindo(a) à Casa dos Assados!"
-                android:layout_marginTop="16dp"
-                android:textStyle="bold"
-                android:textColor="#333333"
-                android:textAlignment="center" />
+        <!-- GRID DE NAVEGAÇÃO OBJETIVA -->
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="2"
+            android:paddingHorizontal="12dp"
+            android:alignmentMode="alignMargins"
+            android:columnOrderPreserved="false">
 
-            <Button
-                android:id="@+id/btn_cardapio"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_marginTop="25dp"
-                android:backgroundTint="#FFB300"
-                android:text="VER CARDÁPIO"
-                android:textStyle="bold"
-                android:textColor="#FFFFFF" />
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_cardapio"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical">
+                    <ImageView android:layout_width="48dp" android:layout_height="48dp" android:src="@android:drawable/ic_menu_agenda" app:tint="#D32F2F"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cardápio" android:textColor="#212121" android:textStyle="bold" android:layout_marginTop="8dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-            <Button
-                android:id="@+id/btn_meus_pedidos"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_marginTop="10dp"
-                android:backgroundTint="#4CAF50"
-                android:text="MEUS PEDIDOS"
-                android:textStyle="bold"
-                android:textColor="#FFFFFF" />
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_meus_pedidos"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical">
+                    <ImageView android:layout_width="48dp" android:layout_height="48dp" android:src="@android:drawable/ic_menu_recent_history" app:tint="#D32F2F"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Meus Pedidos" android:textColor="#212121" android:textStyle="bold" android:layout_marginTop="8dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-            <Button
-                android:id="@+id/btn_sair"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_marginTop="20dp"
-                android:backgroundTint="#D32F2F"
-                android:text="SAIR DA CONTA"
-                android:textStyle="bold"
-                android:textColor="#FFFFFF" />
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_meu_perfil"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical">
+                    <ImageView android:layout_width="48dp" android:layout_height="48dp" android:src="@android:drawable/ic_menu_myplaces" app:tint="#D32F2F"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Meu Perfil" android:textColor="#212121" android:textStyle="bold" android:layout_marginTop="8dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_sobre"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical">
+                    <ImageView android:layout_width="48dp" android:layout_height="48dp" android:src="@android:drawable/ic_menu_info_details" app:tint="#D32F2F"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Sobre Nós" android:textColor="#212121" android:textStyle="bold" android:layout_marginTop="8dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </GridLayout>
 
-</LinearLayout>
+        <!-- BOTÃO SAIR DA CONTA RESTAURADO -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_sair"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="32dp"
+            android:text="Sair da Conta"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:icon="@android:drawable/ic_lock_power_off"
+            app:iconGravity="textStart"
+            app:iconTint="#FFFFFF"
+            app:cornerRadius="16dp"
+            app:backgroundTint="#E53935"
+            app:elevation="2dp"/>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

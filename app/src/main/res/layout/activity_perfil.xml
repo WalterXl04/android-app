@@ -1,78 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F5F5F5"
-    android:padding="24dp">
+    android:background="#F5F6F8">
 
-    <TextView
+    <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Meu Perfil"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:textColor="#B71C1C"
-        android:textAlignment="center"
-        android:layout_marginBottom="32dp"/>
+        android:layout_height="?attr/actionBarSize"
+        android:background="#D32F2F"
+        app:contentInsetStart="0dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="E-mail (Não editável)"
-        android:textColor="#757575"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp">
 
-    <EditText
-        android:id="@+id/edit_perfil_email"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#E0E0E0"
-        android:enabled="false"
-        android:padding="12dp"
-        android:textColor="#9E9E9E"
-        android:layout_marginBottom="16dp"/>
+            <ImageView
+                android:id="@+id/btn_voltar"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_back"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginEnd="16dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nome Completo"
-        android:textColor="#B71C1C"
-        android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Meu Perfil"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
 
-    <EditText
-        android:id="@+id/edit_perfil_nome"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@android:color/white"
-        android:padding="12dp"
-        android:hint="Digite seu nome"
-        android:layout_marginBottom="16dp"/>
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent" android:padding="16dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Telefone (WhatsApp)"
-        android:textColor="#B71C1C"
-        android:textStyle="bold"/>
+            <ImageView android:layout_width="100dp" android:layout_height="100dp" android:src="@android:drawable/ic_menu_myplaces" app:tint="#BDBDBD" android:layout_gravity="center" android:layout_marginVertical="16dp"/>
 
-    <EditText
-        android:id="@+id/edit_perfil_telefone"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@android:color/white"
-        android:padding="12dp"
-        android:inputType="phone"
-        android:hint="(00) 00000-0000"
-        android:layout_marginBottom="32dp"/>
+            <TextView android:text="Seus Dados (Consulta e Edição)" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="8dp"/>
 
-    <Button
-        android:id="@+id/btn_salvar_perfil"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="ATUALIZAR DADOS"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:backgroundTint="#FFB300"
-        android:textColor="#FFFFFF"/>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp">
+                <LinearLayout android:padding="16dp" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
 
+                    <EditText android:id="@+id/edt_perfil_nome" android:layout_width="match_parent" android:layout_height="50dp" android:hint="Nome Completo" android:background="@drawable/bg_quantidade" android:paddingHorizontal="12dp" android:layout_marginBottom="12dp"/>
+
+                    <EditText android:id="@+id/edt_perfil_endereco" android:layout_width="match_parent" android:layout_height="50dp" android:hint="Endereço Padrão de Entrega" android:background="@drawable/bg_quantidade" android:paddingHorizontal="12dp"/>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_atualizar_perfil"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="24dp"
+                android:text="Salvar Alterações (UPDATE)"
+                android:textSize="16sp"
+                app:cornerRadius="12dp"
+                app:backgroundTint="#D32F2F"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_sair"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Sair da Conta (Logout)"
+                android:textColor="#757575"/>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

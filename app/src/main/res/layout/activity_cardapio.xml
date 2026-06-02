@@ -1,121 +1,195 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5">
+    android:background="#F5F6F8">
 
-    <LinearLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:background="#D32F2F"
+        app:elevation="4dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nosso Cardápio"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            android:textColor="#B71C1C"
-            android:layout_gravity="center"
-            android:layout_marginBottom="24dp"/>
-
-        <androidx.cardview.widget.CardView
+        <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp">
+            android:layout_height="?attr/actionBarSize"
+            android:background="#D32F2F"
+            app:contentInsetStart="0dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp">
+
+                <ImageView
+                    android:id="@+id/btn_voltar"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/ic_back"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_marginEnd="16dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="🍗 Frango Assado Especial"
+                    android:text="Cardápio"
+                    android:textColor="#FFFFFF"
                     android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="#D84315"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Frango inteiro assado na brasa, marinado com ervas finas. Acompanha farofa."
-                    android:layout_marginTop="4dp"
-                    android:textColor="#616161"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="R$ 45,00"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="#2E7D32"
-                    android:layout_marginTop="8dp"/>
-
-                <Button
-                    android:id="@+id/btn_add_frango"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="ADICIONAR"
-                    android:layout_gravity="end"
-                    android:backgroundTint="#FFB300"
-                    android:textColor="#FFFFFF"/>
+                    android:textStyle="bold"/>
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </androidx.appcompat.widget.Toolbar>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:hint="Buscar em Assados Express..."
+                android:drawableStart="@android:drawable/ic_menu_search"
+                android:drawablePadding="8dp"
+                android:paddingHorizontal="16dp"
+                android:textSize="14sp"
+                android:inputType="text"
+                android:maxLines="1"/>
+        </com.google.android.material.card.MaterialCardView>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:fillViewport="true">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp">
+            android:orientation="vertical"
+            android:paddingBottom="100dp">
 
-            <LinearLayout
+            <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:scrollbars="none"
+                android:paddingHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:clipToPadding="false">
 
-                <TextView
+                <com.google.android.material.chip.ChipGroup
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="🥗 Maionese da Casa (Grande)"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="#D84315"/>
+                    app:singleLine="true"
+                    app:singleSelection="true">
 
+                    <com.google.android.material.chip.Chip
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🔥 Destaques"
+                        app:checkedIconEnabled="true"
+                        android:checked="true"/>
+                    <com.google.android.material.chip.Chip
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🍗 Frangos"/>
+                    <com.google.android.material.chip.Chip
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🥩 Carnes"/>
+                    <com.google.android.material.chip.Chip
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🥤 Bebidas"/>
+                </com.google.android.material.chip.ChipGroup>
+            </HorizontalScrollView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mais Vendidos"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#212121"
+                android:layout_margin="16dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_produtos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="8dp"
+                android:nestedScrollingEnabled="false" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_carrinho_flutuante"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_gravity="bottom"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="12dp"
+        app:cardBackgroundColor="#D32F2F"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/btn_abrir_checkout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="20dp"
+            android:foreground="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
                 <TextView
+                    android:id="@+id/txt_qtd_itens_carrinho"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Receita tradicional com batatas selecionadas e tempero especial."
-                    android:layout_marginTop="4dp"
-                    android:textColor="#616161"/>
-
+                    android:text="0 itens"
+                    android:textColor="#FFCDD2"
+                    android:textSize="12sp"/>
                 <TextView
+                    android:id="@+id/txt_total_carrinho"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="R$ 25,00"
+                    android:text="R$ 0,00"
+                    android:textColor="#FFFFFF"
                     android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="#2E7D32"
-                    android:layout_marginTop="8dp"/>
-
-                <Button
-                    android:id="@+id/btn_add_maionese"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="ADICIONAR"
-                    android:layout_gravity="end"
-                    android:backgroundTint="#FFB300"
-                    android:textColor="#FFFFFF"/>
+                    android:textStyle="bold"/>
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
 
-    </LinearLayout>
-</ScrollView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Finalizar"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginEnd="8dp"/>
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@android:drawable/ic_media_next"
+                app:tint="#FFFFFF"/>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

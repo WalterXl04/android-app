@@ -1,13 +1,14 @@
 package com.example.imepacluisaugusto
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
+import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.button.MaterialButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-
 
 class PerfilActivity : AppCompatActivity() {
 
@@ -19,48 +20,44 @@ class PerfilActivity : AppCompatActivity() {
         setContentView(R.layout.activity_perfil)
         supportActionBar?.hide()
 
-        val editNome = findViewById<EditText>(R.id.edit_perfil_nome)
-        val editEmail = findViewById<EditText>(R.id.edit_perfil_email)
-        val editTelefone = findViewById<EditText>(R.id.edit_perfil_telefone)
-        val btnSalvar = findViewById<Button>(R.id.btn_salvar_perfil)
+        // ATIVA O BOTÃO DE VOLTAR
+        findViewById<View>(R.id.btn_voltar).setOnClickListener {
+            finish()
+        }
 
-        val usuarioAtual = auth.currentUser
+        val edtNome = findViewById<EditText>(R.id.edt_perfil_nome)
+        val edtEndereco = findViewById<EditText>(R.id.edt_perfil_endereco)
+        val btnAtualizar = findViewById<MaterialButton>(R.id.btn_atualizar_perfil)
 
-        if (usuarioAtual != null) {
-            val uid = usuarioAtual.uid
-            editEmail.setText(usuarioAtual.email)
+        // Aqui removemos a variável btnSair, já que o botão foi movido para a Home na etapa anterior
 
-            // REQUISITO DA FACULDADE: SELECT APENAS 1 REGISTRO
-            db.collection("Usuarios").document(uid).get()
-                .addOnSuccessListener { document ->
-                    if (document.exists()) {
-                        editNome.setText(document.getString("nome"))
-                        editTelefone.setText(document.getString("telefone") ?: "")
+        val userId = auth.currentUser?.uid
+
+        if (userId != null) {
+            db.collection("Usuarios").document(userId).get()
+                .addOnSuccessListener { documento ->
+                    if (documento.exists()) {
+                        edtNome.setText(documento.getString("nome"))
+                        edtEndereco.setText(documento.getString("endereco"))
                     }
                 }
+        }
 
-            // REQUISITO DA FACULDADE: UPDATE
-            btnSalvar.setOnClickListener {
-                val novoNome = editNome.text.toString()
-                val novoTelefone = editTelefone.text.toString()
+        btnAtualizar.setOnClickListener {
+            if (userId != null) {
+                val novosDados = mapOf(
+                    "nome" to edtNome.text.toString(),
+                    "endereco" to edtEndereco.text.toString()
+                )
 
-                if (novoNome.isNotEmpty()) {
-                    val dadosAtualizados = mapOf(
-                        "nome" to novoNome,
-                        "telefone" to novoTelefone
-                    )
-
-                    db.collection("Usuarios").document(uid).update(dadosAtualizados)
-                        .addOnSuccessListener {
-                            Toast.makeText(this, "Dados atualizados com sucesso!", Toast.LENGTH_SHORT).show()
-                            finish() // Fecha a tela e volta pra Home
-                        }
-                        .addOnFailureListener {
-                            Toast.makeText(this, "Erro ao atualizar.", Toast.LENGTH_SHORT).show()
-                        }
-                } else {
-                    Toast.makeText(this, "O nome não pode ficar vazio.", Toast.LENGTH_SHORT).show()
-                }
+                db.collection("Usuarios").document(userId).update(novosDados)
+                    .addOnSuccessListener {
+                        Toast.makeText(this, "Perfil atualizado com sucesso!", Toast.LENGTH_SHORT).show()
+                        finish()
+                    }
+                    .addOnFailureListener {
+                        Toast.makeText(this, "Erro ao atualizar perfil.", Toast.LENGTH_SHORT).show()
+                    }
             }
         }
     }

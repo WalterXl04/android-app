@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F6F8"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#D32F2F">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Forma de Pagamento" android:textColor="#FFFFFF" android:textSize="20sp" android:textStyle="bold"/>
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:padding="16dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+
+            <TextView android:text="Como você quer pagar na entrega?" android:textStyle="bold" android:textSize="16sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="16dp"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp">
+
+                <RadioGroup android:id="@+id/radio_group_pagamento" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="8dp">
+                    <RadioButton android:id="@+id/radio_pix" android:layout_width="match_parent" android:layout_height="50dp" android:text="PIX" android:textSize="16sp"/>
+                    <RadioButton android:id="@+id/radio_credito" android:layout_width="match_parent" android:layout_height="50dp" android:text="Cartão de Crédito" android:textSize="16sp"/>
+                    <RadioButton android:id="@+id/radio_debito" android:layout_width="match_parent" android:layout_height="50dp" android:text="Cartão de Débito" android:textSize="16sp"/>
+                    <RadioButton android:id="@+id/radio_dinheiro" android:layout_width="match_parent" android:layout_height="50dp" android:text="Dinheiro Vivo" android:textSize="16sp"/>
+                </RadioGroup>
+            </com.google.android.material.card.MaterialCardView>
+
+            <LinearLayout
+                android:id="@+id/layout_troco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp"
+                android:visibility="gone">
+                <TextView android:text="Precisa de troco para quanto?" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="8dp"/>
+                <EditText android:id="@+id/edt_troco" android:layout_width="match_parent" android:layout_height="50dp" android:inputType="numberDecimal" android:hint="Ex: 100" android:background="@drawable/bg_quantidade" android:paddingHorizontal="16dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp" android:background="#FFFFFF" android:elevation="8dp">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_revisar_pedido"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Ir para Revisão"
+            android:textSize="16sp"
+            app:cornerRadius="12dp"
+            app:backgroundTint="#D32F2F"/>
+    </LinearLayout>
+</LinearLayout>
